@@ -1,13 +1,11 @@
 const mongoose = require("mongoose");
 
-const connectDb = async () => {
-  try {
-    await mongoose.connect(
-      "mongodb+srv://USERID:USERPASSWORD@cluster0.dycpqbt.mongodb.net/", // ENTER THESE THIS USER ID AND USER PASSWORD OK
-    );
-    console.log("MongoDb Coonected");
-  } catch (error) {
-    console.log("Error in db", error);
-  }
+const connectDB = async ()=>{
+    try {
+        await mongoose.connect(process.env.mongodb_uri);
+        console.log("mongodb connected");
+    } catch (error) {
+        console.log("Error while connecting db ",error);
+    }
 };
-module.exports = connectDb;
+module.exports = connectDB

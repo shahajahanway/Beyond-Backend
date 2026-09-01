@@ -7,7 +7,8 @@ const notesSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    minlength: 10,
+    required: true,
+    minlength: [20, "Minimum 20 characters are required"],
   },
 });
 
