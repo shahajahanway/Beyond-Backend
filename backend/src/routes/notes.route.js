@@ -5,6 +5,7 @@ const {
   getSingleNoteController,
   updateNotesController,
   deleteNoteController,
+  singleEntityUpdateController,
 } = require("../controllers/notes.controller");
 
 const router = express.Router();
@@ -16,8 +17,11 @@ router.get("/allNotes", getAllNotesController);
 // Read one
 router.get("/:id", getSingleNoteController);
 
-// Update
+// Update via put 
 router.put("/:id", updateNotesController)
+
+// update via patch
+router.patch("/:id/single" ,singleEntityUpdateController)
 
 router.delete("/:id", deleteNoteController)
 
